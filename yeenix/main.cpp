@@ -8,8 +8,25 @@
 
 #include <iostream>
 
+using std::string;
+
+void terminalLoop();
+void init();
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    init();
+    
+    terminalLoop();
     return 0;
+}
+
+void terminalLoop() {
+    while (true) {
+        string cmd;
+        std::cin >> cmd;
+    }
+}
+
+void init() {
+    
 }
