@@ -7,24 +7,35 @@
 //
 
 #include <iostream>
+#include "utils.hpp"
 
-using std::string;
+using Args = std::vector<std::string>;
 
-void terminalLoop();
+void ysh_loop();
 void init();
+int ysh_execute(Args);
 
 int main(int argc, const char * argv[]) {
     init();
     
-    terminalLoop();
+    ysh_loop();
     return 0;
 }
 
-void terminalLoop() {
-    while (true) {
-        string cmd;
-        std::cin >> cmd;
-    }
+void ysh_loop() {
+    int status = 0;
+    std::string user_in{};
+
+    do {
+        std::cout << "> " << std::endl;
+        std::cin >> user_in;
+        Args args = parse_args(user_in);
+        status = ysh_execute(args);
+    } while (!status);
+}
+
+int ysh_execute (Args args) {
+    return 0;
 }
 
 void init() {
